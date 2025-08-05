@@ -58,45 +58,43 @@ export default function Navbar() {
                   { name: "Testimonials", id: "testimonials" },
                   { name: "Blog", id: "blog" },
                   { name: "Awards", id: "awards" },
-                  { name: "Contact", id: "contact" }
+                  { name: "Contact", id: "contact" },
+                  { name: "Get a Quote", id: "contact", isCTA: true }
                 ].map((item, index) => (
                   <button
                     key={item.name}
                     onClick={() => scrollToSection(item.id)}
                     className={`relative px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300 group overflow-hidden ${
                       isScrolled ? "text-white hover:text-white" : "text-white hover:text-white"
-                    }`}
+                    } ${item.isCTA ? "bg-[#2e7d32] text-white hover:scale-105 hover:shadow-xl hover:shadow-[#2e7d32]/30" : ""}`}
                     style={{ animationDelay: `${index * 50}ms` }}
                   >
-                    {/* Background hover effect */}
-                    <div className="absolute inset-0 bg-white/10 rounded-lg transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left" />
+                    {/* Background hover effect for regular links */}
+                    {!item.isCTA && (
+                      <div className="absolute inset-0 bg-white/10 rounded-lg transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left" />
+                    )}
+                    
+                    {/* Button background animation for CTA */}
+                    {item.isCTA && (
+                      <div className="absolute inset-0 bg-gradient-to-r from-[#1b5e20] to-[#2e7d32] transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left rounded-lg" />
+                    )}
                     
                     {/* Text with glow effect */}
-                    <span className="relative z-10 group-hover:font-semibold transition-all duration-300 group-hover:drop-shadow-lg">
+                    <span className={`relative z-10 group-hover:font-semibold transition-all duration-300 group-hover:drop-shadow-lg ${item.isCTA ? "group-hover:text-white" : ""}`}>
                       {item.name}
                     </span>
                     
-                    {/* Underline animation */}
-                    <div className="absolute bottom-0 left-0 w-full h-0.5 bg-white transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left" />
+                    {/* Underline animation for regular links */}
+                    {!item.isCTA && (
+                      <div className="absolute bottom-0 left-0 w-full h-0.5 bg-white transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left" />
+                    )}
+                    
+                    {/* Ripple effect for CTA */}
+                    {item.isCTA && (
+                      <div className="absolute inset-0 rounded-lg bg-white/20 transform scale-0 group-hover:scale-100 transition-transform duration-500 opacity-0 group-hover:opacity-100" />
+                    )}
                   </button>
                 ))}
-                
-                {/* CTA Button with enhanced styling */}
-                <button
-                  onClick={() => scrollToSection("contact")}
-                  className="relative bg-white text-[#2e7d32] px-6 py-2.5 rounded-full text-sm font-semibold transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-white/30 group overflow-hidden ml-4"
-                >
-                  {/* Button background animation */}
-                  <div className="absolute inset-0 bg-gradient-to-r from-[#2e7d32] to-[#1b5e20] transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left rounded-full" />
-                  
-                  {/* Text with color transition */}
-                  <span className="relative z-10 group-hover:text-white transition-colors duration-300">
-                    Get a Quote
-                  </span>
-                  
-                  {/* Ripple effect */}
-                  <div className="absolute inset-0 rounded-full bg-white/20 transform scale-0 group-hover:scale-100 transition-transform duration-500 opacity-0 group-hover:opacity-100" />
-                </button>
               </div>
             </div>
 

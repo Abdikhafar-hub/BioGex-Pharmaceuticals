@@ -15,19 +15,19 @@ export async function POST(request: NextRequest) {
 
     // Create transporter
     const transporter = nodemailer.createTransport({
-      host: process.env.SMTP_HOST || 'smtp.zoho.com',
+      host: process.env.SMTP_HOST ,
       port: parseInt(process.env.SMTP_PORT || '465'),
       secure: true, // true for 465, false for other ports
       auth: {
-        user: process.env.SMTP_USER || 'info@biogexpharma.com',
-        pass: process.env.SMTP_PASSWORD || 'BiogexInfo24*',
+        user: process.env.SMTP_USER ,
+        pass: process.env.SMTP_PASSWORD ,
       },
     })
 
     // Email to admin
     const adminEmail = {
-      from: process.env.SMTP_USER || 'info@biogexpharma.com',
-      to: process.env.SMTP_USER || 'info@biogexpharma.com',
+      from: process.env.SMTP_USER ,
+      to: process.env.SMTP_USER ,
       subject: `New Contact Form Submission: ${subject}`,
       html: `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
