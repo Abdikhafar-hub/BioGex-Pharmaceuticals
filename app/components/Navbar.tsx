@@ -23,16 +23,13 @@ export default function Navbar() {
     setIsMobileMenuOpen(false)
   }
 
-  const openProductSheet = () => {
-    window.open("https://docs.google.com/spreadsheets/d/1example", "_blank")
-  }
-
   return (
     <>
+      {/* Navbar */}
       <nav
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
           isScrolled ? "bg-[#2e7d32] shadow-lg" : "bg-transparent"
-        } ${isMobileMenuOpen ? "opacity-0 pointer-events-none" : "opacity-100 pointer-events-auto"}`}
+        }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
@@ -46,7 +43,7 @@ export default function Navbar() {
             </div>
 
             {/* Desktop Navigation */}
-            <div className="hidden md:block">
+            <div className={`hidden md:block`}>
               <div className="ml-10 flex items-baseline space-x-2">
                 {[
                   { name: "Home", id: "home" },
@@ -69,27 +66,18 @@ export default function Navbar() {
                     } ${item.isCTA ? "bg-[#2e7d32] text-white hover:scale-105 hover:shadow-xl hover:shadow-[#2e7d32]/30" : ""}`}
                     style={{ animationDelay: `${index * 50}ms` }}
                   >
-                    {/* Background hover effect for regular links */}
                     {!item.isCTA && (
                       <div className="absolute inset-0 bg-white/10 rounded-lg transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left" />
                     )}
-                    
-                    {/* Button background animation for CTA */}
                     {item.isCTA && (
                       <div className="absolute inset-0 bg-gradient-to-r from-[#1b5e20] to-[#2e7d32] transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left rounded-lg" />
                     )}
-                    
-                    {/* Text with glow effect */}
                     <span className={`relative z-10 group-hover:font-semibold transition-all duration-300 group-hover:drop-shadow-lg ${item.isCTA ? "group-hover:text-white" : ""}`}>
                       {item.name}
                     </span>
-                    
-                    {/* Underline animation for regular links */}
                     {!item.isCTA && (
                       <div className="absolute bottom-0 left-0 w-full h-0.5 bg-white transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left" />
                     )}
-                    
-                    {/* Ripple effect for CTA */}
                     {item.isCTA && (
                       <div className="absolute inset-0 rounded-lg bg-white/20 transform scale-0 group-hover:scale-100 transition-transform duration-500 opacity-0 group-hover:opacity-100" />
                     )}
@@ -98,13 +86,11 @@ export default function Navbar() {
               </div>
             </div>
 
-            {/* Mobile menu button */}
+            {/* Mobile Menu Button */}
             <div className="md:hidden">
               <button
                 onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                className={`p-2 rounded-md transition-colors duration-300 ${
-                  isScrolled ? "text-white" : "text-white"
-                }`}
+                className="p-2 rounded-md text-white"
               >
                 {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
               </button>
@@ -124,7 +110,7 @@ export default function Navbar() {
           className="absolute inset-0 bg-black/60 backdrop-blur-sm" 
           onClick={() => setIsMobileMenuOpen(false)} 
         />
-        
+
         {/* Mobile Menu Panel */}
         <div
           className={`absolute top-0 right-0 h-full w-80 bg-gradient-to-b from-[#2e7d32] via-[#1b5e20] to-[#2e7d32] shadow-2xl transform transition-all duration-300 ${
@@ -133,14 +119,11 @@ export default function Navbar() {
         >
           {/* Header */}
           <div className="flex items-center justify-between p-6 border-b border-white/20">
-            <div className="flex items-center space-x-3">
-              <img
-                src="/logofullbgless.png"
-                alt="BioGex Pharmaceuticals"
-                className="h-8 w-auto brightness-0 invert"
-              />
-             
-            </div>
+            <img
+              src="/logofullbgless.png"
+              alt="BioGex Pharmaceuticals"
+              className="h-8 w-auto brightness-0 invert"
+            />
             <button
               onClick={() => setIsMobileMenuOpen(false)}
               className="p-2 rounded-full bg-white/10 hover:bg-white/20 transition-colors duration-200"
@@ -168,7 +151,6 @@ export default function Navbar() {
                   key={item.name}
                   onClick={() => scrollToSection(item.id)}
                   className="w-full flex items-center space-x-4 px-4 py-3 text-white hover:bg-white/10 rounded-xl transition-all duration-200 hover:scale-105 group"
-                  style={{ animationDelay: `${index * 50}ms` }}
                 >
                   <span className="text-lg opacity-80 group-hover:opacity-100 transition-opacity duration-200">
                     {item.icon}
@@ -180,7 +162,7 @@ export default function Navbar() {
               ))}
             </div>
 
-            {/* CTA Button */}
+            {/* CTA */}
             <div className="mt-8 pt-6 border-t border-white/20">
               <button
                 onClick={() => scrollToSection("contact")}
@@ -192,15 +174,9 @@ export default function Navbar() {
             </div>
 
             {/* Footer */}
-            <div className="mt-8 pt-6 border-t border-white/20">
-              <div className="text-center">
-                <p className="text-white/60 text-xs">
-                  Leading pharmaceutical distribution
-                </p>
-                <p className="text-white/40 text-xs mt-1">
-                  © 2024 BioGex Pharmaceuticals
-                </p>
-              </div>
+            <div className="mt-8 pt-6 border-t border-white/20 text-center text-white/60 text-xs">
+              <p>Leading pharmaceutical distribution</p>
+              <p className="text-white/40 mt-1">© 2024 BioGex Pharmaceuticals</p>
             </div>
           </div>
         </div>

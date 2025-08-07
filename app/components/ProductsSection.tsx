@@ -83,7 +83,7 @@ export default function ProductsSection() {
   }
 
   const openProductSheet = () => {
-    window.open("https://docs.google.com/spreadsheets/d/1example", "_blank")
+    window.location.href = "/products"
   }
 
   return (
@@ -184,7 +184,7 @@ export default function ProductsSection() {
                 className="bg-white text-[#2e7d32] px-6 sm:px-8 py-3 sm:py-4 rounded-full text-sm sm:text-lg font-semibold hover:bg-gray-100 transition-all duration-300 hover:scale-105 flex items-center gap-2 sm:gap-3 shadow-lg hover:shadow-xl"
               >
                 <ExternalLink size={20} className="sm:w-6 sm:h-6" />
-                View Full Product List
+                Browse Product Catalog
               </button>
 
               {/* Info Badges */}
