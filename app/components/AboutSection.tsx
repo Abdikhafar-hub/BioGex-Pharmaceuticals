@@ -1,7 +1,7 @@
 "use client"
 
 import { useEffect, useState } from "react"
-import { Users, Lightbulb, Target, Award, Building2, Globe, CheckCircle, Shield, MessageSquare, Heart, TrendingUp } from "lucide-react"
+import { Users, Lightbulb, Target, Award, Building2, Globe, CheckCircle, Shield, MessageSquare, Heart, TrendingUp, ArrowDown } from "lucide-react"
 
 export default function AboutSection() {
   const [isVisible, setIsVisible] = useState(false)
@@ -32,6 +32,13 @@ export default function AboutSection() {
     const element = document.getElementById("contact")
     if (element) {
       element.scrollIntoView({ behavior: "smooth" })
+    }
+  }
+
+  const scrollToCoreValues = () => {
+    const element = document.getElementById("core-values")
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth", block: "start" })
     }
   }
 
@@ -144,14 +151,22 @@ export default function AboutSection() {
             </p>
           </div>
 
-          <div className="text-center p-6 sm:p-8 bg-white border border-gray-200 rounded-lg sm:rounded-xl shadow-sm hover:shadow-md transition-shadow">
+          <div className="text-center p-6 sm:p-8 bg-white border border-gray-200 rounded-lg sm:rounded-xl shadow-sm hover:shadow-md transition-shadow relative group">
             <div className="bg-[#2e7d32] text-white p-3 sm:p-4 rounded-full w-fit mx-auto mb-3 sm:mb-4">
               <Award size={20} className="sm:w-6 sm:h-6" />
             </div>
             <h4 className="text-lg sm:text-xl font-bold text-gray-900 mb-2 sm:mb-3">Our Values</h4>
-            <p className="text-sm sm:text-base text-gray-600">
-              Teamwork & Collaboration, Clear & Purposeful Communication, Ethics Integrity & Trust, Innovation Growth & Impact.
+            <p className="text-sm sm:text-base text-gray-600 mb-4">
+              The fundamental principles that guide our operations and shape our commitment to excellence in pharmaceutical distribution.
             </p>
+            <button
+              onClick={scrollToCoreValues}
+              className="mt-4 mx-auto flex items-center justify-center gap-2 text-[#2e7d32] hover:text-[#1b5e20] transition-all duration-200 group-hover:translate-y-1"
+              aria-label="Scroll to Core Values"
+            >
+              <span className="text-sm font-medium">Learn More</span>
+              <ArrowDown size={18} className="group-hover:animate-bounce" />
+            </button>
           </div>
         </div>
 
@@ -195,6 +210,7 @@ export default function AboutSection() {
 
         {/* Core Values Section */}
         <div
+          id="core-values"
           className={`mt-12 sm:mt-20 transition-all duration-1000 delay-1000 ${
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
           }`}

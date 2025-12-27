@@ -84,9 +84,9 @@ export default function ContactSection() {
                 <div>
                   <h4 className="text-sm sm:text-lg font-semibold text-gray-900">Address</h4>
                   <p className="text-xs sm:text-sm text-gray-600">
-                    Office 7, The Close, Ngara Road
+                    Godown 8, Roy Business Park
                     <br />
-                    Nairobi, Kenya
+                    Baba Dogo Road, Nairobi, Kenya
                   </p>
                 </div>
               </div>
@@ -248,7 +248,7 @@ export default function ContactSection() {
         {/* Full-width Map */}
         <div className="relative z-0" data-aos="fade-up" data-aos-duration="800" data-aos-delay="400">
           <iframe
-            src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d2667.124983906028!2d36.827296213401674!3d-1.2773106548249473!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f1742cd47a12d%3A0x15dd5266c11e7803!2sBioGex%20Pharma!5e0!3m2!1sen!2ske!4v1722244080305!5m2!1sen!2ske"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.5!2d36.8894134!3d-1.2410655!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f1587933d4403%3A0x845c3be514cb9d4e!2sRoy%20Business%20Park!5e0!3m2!1sen!2ske!4v1722244080305!5m2!1sen!2ske"
             width="100%"
             height="300"
             style={{ border: 0 }}

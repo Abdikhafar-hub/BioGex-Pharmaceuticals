@@ -164,8 +164,8 @@ export default function Footer() {
                     <MapPin size={12} className="sm:w-4 sm:h-4 text-white" />
                   </div>
                   <div className="text-xs sm:text-sm text-white/70 group-hover:text-white transition-colors duration-300">
-                    <p>Office 7, The Close, Ngara Road</p>
-                    <p>Nairobi, Kenya</p>
+                    <p>Godown 8, Roy Business Park</p>
+                    <p>Baba Dogo Road, Nairobi, Kenya</p>
                   </div>
                 </div>
 
