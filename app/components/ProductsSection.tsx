@@ -8,7 +8,7 @@ const products = [
     icon: Package,
     title: "Generic Medications",
     description: "High-quality generic pharmaceuticals across all therapeutic categories with proven efficacy",
-    count: 500,
+    count: 3000,
     suffix: "+",
     bgColor: "bg-green-100",
     iconColor: "text-green-700",
