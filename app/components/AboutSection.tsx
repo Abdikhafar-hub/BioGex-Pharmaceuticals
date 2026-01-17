@@ -47,7 +47,7 @@ export default function AboutSection() {
   }
 
   return (
-    <section id="about" className="py-12 sm:py-20 bg-gradient-to-br from-green-100 via-green-50 to-green-100">
+    <section id="about" className="py-12 sm:py-20 bg-gradient-to-br from-green-100 via-green-50 to-green-100 overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div
@@ -82,7 +82,7 @@ export default function AboutSection() {
                 with premium medical products. We serve as the vital link between manufacturers and healthcare
                 institutions worldwide, ensuring seamless access to life-saving medications.
               </p>
-              
+
               <div className="space-y-3 sm:space-y-4">
                 <div className="flex items-start gap-3">
                   <CheckCircle className="text-[#2e7d32] mt-1 flex-shrink-0" size={20} />
@@ -124,9 +124,8 @@ export default function AboutSection() {
 
         {/* Bottom Section */}
         <div
-          className={`mt-12 sm:mt-20 grid md:grid-cols-3 gap-6 sm:gap-8 transition-all duration-1000 delay-700 ${
-            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
-          }`}
+          className={`mt-12 sm:mt-20 grid md:grid-cols-3 gap-6 sm:gap-8 transition-all duration-1000 delay-700 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+            }`}
           data-aos="fade-up"
           data-aos-duration="800"
           data-aos-delay="400"
@@ -172,9 +171,8 @@ export default function AboutSection() {
 
         {/* Quality Statement Section */}
         <div
-          className={`mt-12 sm:mt-20 transition-all duration-1000 delay-900 ${
-            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
-          }`}
+          className={`mt-12 sm:mt-20 transition-all duration-1000 delay-900 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+            }`}
           data-aos="fade-up"
           data-aos-duration="800"
           data-aos-delay="600"
@@ -211,9 +209,8 @@ export default function AboutSection() {
         {/* Core Values Section */}
         <div
           id="core-values"
-          className={`mt-12 sm:mt-20 transition-all duration-1000 delay-1000 ${
-            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
-          }`}
+          className={`mt-12 sm:mt-20 transition-all duration-1000 delay-1000 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+            }`}
           data-aos="fade-up"
           data-aos-duration="800"
           data-aos-delay="800"

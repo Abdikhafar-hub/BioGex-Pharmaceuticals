@@ -43,17 +43,7 @@ export default function HeroSection() {
     return () => clearInterval(interval)
   }, [isAutoPlaying])
 
-  // Debug logging
-  useEffect(() => {
-    console.log('Current slide:', currentSlide)
-    console.log('Current image:', slides[currentSlide].image)
-    
-    // Test image loading
-    const img = new Image()
-    img.onload = () => console.log('Image loaded successfully:', slides[currentSlide].image)
-    img.onerror = () => console.error('Image failed to load:', slides[currentSlide].image)
-    img.src = slides[currentSlide].image
-  }, [currentSlide])
+  // Debug logging removed
 
   const scrollToContact = () => {
     const element = document.getElementById("contact")
@@ -68,56 +58,46 @@ export default function HeroSection() {
 
   // Animation variants
   const imageVariants = {
-    hidden: { 
-      y: -200, 
+    hidden: {
       opacity: 0,
-      scale: 0.8
+      scale: 1.1
     },
-    visible: { 
-      y: 0, 
+    visible: {
       opacity: 1,
       scale: 1
     },
     exit: {
-      y: -100,
-      opacity: 0,
-      scale: 0.9
+      opacity: 0
     }
   }
 
   const textVariants = {
-    hidden: { 
+    hidden: {
       opacity: 0,
-      scale: 0.95,
-      y: -100
+      y: 20
     },
-    visible: { 
+    visible: {
       opacity: 1,
-      scale: 1,
       y: 0
     },
     exit: {
       opacity: 0,
-      scale: 0.95,
-      y: -50
+      y: -20
     }
   }
 
   const buttonVariants = {
-    hidden: { 
+    hidden: {
       opacity: 0,
-      scale: 0.9,
-      y: -50
+      y: 20
     },
-    visible: { 
+    visible: {
       opacity: 1,
-      scale: 1,
       y: 0
     },
     exit: {
       opacity: 0,
-      scale: 0.9,
-      y: -30
+      y: 20
     }
   }
 
@@ -125,32 +105,28 @@ export default function HeroSection() {
     <section id="home" className="relative h-screen overflow-hidden">
       {/* Animated Background Image */}
       <AnimatePresence mode="sync">
-        <motion.div 
+        <motion.div
           key={currentSlide}
-          className="absolute top-0 left-0 w-full h-full z-0"
+          className="absolute top-0 left-0 w-full h-full z-0 bg-cover bg-center bg-no-repeat"
           style={{
             backgroundImage: `url(${slides[currentSlide].image})`,
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
-            backgroundRepeat: 'no-repeat',
-            minHeight: '100vh',
             backgroundColor: '#1a1a1a' // Fallback color
           }}
           variants={imageVariants}
           initial="hidden"
           animate="visible"
           exit="exit"
-          transition={{ duration: 0.4 }}
+          transition={{ duration: 0.7, ease: "easeInOut" }}
         />
       </AnimatePresence>
-      
+
       {/* Overlay to prevent flash */}
       <div className="absolute inset-0 bg-black/20 z-10" />
 
       {/* Content */}
       <div className="relative z-20 h-full flex items-center justify-center">
         <AnimatePresence mode="wait">
-          <motion.div 
+          <motion.div
             key={currentSlide}
             className="text-center text-white px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto"
             variants={textVariants}
@@ -160,7 +136,7 @@ export default function HeroSection() {
             transition={{ duration: 0.6, ease: "easeOut" }}
           >
             {/* Welcome Banner */}
-            <motion.div 
+            <motion.div
               className="mb-4 sm:mb-6"
               variants={textVariants}
               initial="hidden"
@@ -172,8 +148,8 @@ export default function HeroSection() {
                 Welcome to BioGex Pharma
               </span>
             </motion.div>
-            
-            <motion.h1 
+
+            <motion.h1
               className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-display font-bold mb-4 sm:mb-6 leading-tight tracking-tight text-white drop-shadow-lg"
               variants={textVariants}
               initial="hidden"
@@ -183,8 +159,8 @@ export default function HeroSection() {
             >
               {slides[currentSlide].title}
             </motion.h1>
-            
-            <motion.p 
+
+            <motion.p
               className="text-base sm:text-lg lg:text-xl xl:text-2xl mb-6 sm:mb-8 opacity-90 font-heading font-normal leading-relaxed max-w-3xl mx-auto text-white drop-shadow-lg"
               variants={textVariants}
               initial="hidden"
@@ -194,8 +170,8 @@ export default function HeroSection() {
             >
               {slides[currentSlide].subtitle}
             </motion.p>
-            
-            <motion.div 
+
+            <motion.div
               className="flex flex-row gap-2 sm:gap-4 justify-center"
               variants={buttonVariants}
               initial="hidden"
@@ -212,7 +188,7 @@ export default function HeroSection() {
                 Get a quote now
                 <ArrowRight size={12} className="sm:w-4 sm:h-4" />
               </motion.button>
-              
+
               <motion.button
                 onClick={openProductSheet}
                 className="group border-2 border-white text-white px-3 sm:px-6 py-2.5 sm:py-3 rounded-lg text-xs sm:text-base font-semibold hover:bg-white hover:text-[#2e7d32] transition-all duration-300 hover:scale-105 flex items-center justify-center gap-1 sm:gap-2"
@@ -233,11 +209,10 @@ export default function HeroSection() {
           <motion.button
             key={index}
             onClick={() => setCurrentSlide(index)}
-            className={`w-3 h-3 sm:w-4 sm:h-4 rounded-full transition-all duration-300 hover:scale-125 ${
-              index === currentSlide 
-                ? "bg-gradient-to-r from-[#2e7d32] to-[#1b5e20] scale-125 shadow-lg shadow-[#2e7d32]/50" 
+            className={`w-3 h-3 sm:w-4 sm:h-4 rounded-full transition-all duration-300 hover:scale-125 ${index === currentSlide
+                ? "bg-gradient-to-r from-[#2e7d32] to-[#1b5e20] scale-125 shadow-lg shadow-[#2e7d32]/50"
                 : "bg-white bg-opacity-50 hover:bg-opacity-75"
-            }`}
+              }`}
             whileHover={{ scale: 1.2 }}
             whileTap={{ scale: 0.9 }}
           />
@@ -245,7 +220,7 @@ export default function HeroSection() {
       </div>
 
       {/* Scroll Indicator */}
-      <motion.div 
+      <motion.div
         className="absolute bottom-6 sm:bottom-8 right-4 sm:right-8 z-20"
         animate={{ y: [0, 10, 0] }}
         transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}

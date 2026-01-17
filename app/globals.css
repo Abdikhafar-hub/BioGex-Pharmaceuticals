@@ -119,15 +119,19 @@
   * {
     @apply border-border outline-ring/50;
   }
+  html {
+    overflow-x: hidden;
+  }
+
   body {
     @apply bg-background text-foreground;
     font-family: "Inter", sans-serif;
   }
-  
+
   .font-display {
     font-family: "Playfair Display", serif;
   }
-  
+
   .font-heading {
     font-family: "Poppins", sans-serif;
   }
@@ -149,7 +153,7 @@
   .animate-scroll-left {
     animation: scrollLeft 20s linear infinite;
   }
-  
+
   .no-scrollbar {
     -ms-overflow-style: none;
     scrollbar-width: none;
